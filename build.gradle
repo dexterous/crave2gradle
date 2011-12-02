@@ -1,11 +1,9 @@
-apply plugin: 'scala'
+apply plugin: 'groovy'
 
 repositories {
-    mavenRepo url: "http://scala-tools.org/repo-releases"
+    mavenCentral()
 }
 
 dependencies {
-    scalaTools "org.scala-lang:scala-compiler:2.9.1"
-
-    compile "org.scalaz:scalaz-core_2.9.1:6.0.3"
+    groovy 'org.codehaus.groovy:groovy-all:1.8+'
 }
