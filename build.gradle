@@ -20,3 +20,11 @@ task testJar(type: Jar) {
     appendix = 'test'
     from sourceSets.test.allSource
 }
+
+configurations {
+    deliverables
+}
+
+artifacts {
+    deliverables jar, testJar
+}
