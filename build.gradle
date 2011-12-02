@@ -1,5 +1,9 @@
 apply plugin: 'java'
 
+repositories {
+    mavenRepo url: 'http://repo1.maven.org/maven2'
+}
+
 dependencies {
     compile 'commons-cli:commons-cli:1.2'
     testCompile 'junit:junit:4.9', 'org.hamcrest:hamcrest-library:1.2.1'
