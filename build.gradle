@@ -1,9 +1,20 @@
-apply plugin: 'groovy'
+buildscript {
+    repositories {
+        mavenRepo url:'http://clojars.org/repo'
+    }
+
+    dependencies {
+        classpath 'clojuresque:clojuresque:1.4.2'
+    }
+}
+
+apply plugin: 'clojure'
 
 repositories {
     mavenCentral()
+    clojarsRepo()
 }
 
 dependencies {
-    groovy 'org.codehaus.groovy:groovy-all:1.8+'
+    compile 'org.clojure:clojure:1.3.0'
 }
