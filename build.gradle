@@ -4,6 +4,8 @@ repositories {
     mavenCentral()
     mavenLocal()
     mavenRepo url: 'http://download.java.net/maven/2'
+
+    flatDir dirs: ["$projectDir/lib", "$projectDir/test-lib"]
 }
 
 dependencies {
