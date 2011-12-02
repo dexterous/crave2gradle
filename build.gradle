@@ -3,6 +3,7 @@ apply plugin: 'java'
 repositories {
     mavenCentral()
     mavenLocal()
+    mavenRepo url: 'http://download.java.net/maven/2'
 }
 
 dependencies {
