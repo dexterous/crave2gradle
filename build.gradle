@@ -1,27 +1,2 @@
-apply plugin: 'java'
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile 'junit:junit:4.8.2', 'org.hamcrest:hamcrest-core:1.2.1'
-}
-
-def greetingTask(name=null) {
-    nameArg = name ? [name] : []
-
-    task("greet${name ?: ''}", type:JavaExec, dependsOn:['assemble']) {
-        main = 'sandbox.indicj.Main'
-        classpath = sourceSets.main.runtimeClasspath
-        args = nameArg
-
-        doFirst { println('=' * 20) }
-    } << { println('#' * 20) }
-}
-
-greetingTask()
-
-tasks.addRule('Pattern: greet<Name>') { taskName ->
-    if (taskName =~ /^greet/) { greetingTask(taskName - 'greet') }
-}
+apply plugin: 'war'
+apply plugin: 'jetty'
