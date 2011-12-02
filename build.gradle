@@ -12,3 +12,13 @@ task run(type:JavaExec, dependsOn:['assemble']) {
     main = 'sandbox.indicj.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
+
+tasks.addRule('Pattern: greet<Name>') { taskName ->
+    if (taskName =~ /^greet/) {
+        task(taskName, type: JavaExec) {
+            main = 'sandbox.indicj.Main'
+            classpath = sourceSets.main.runtimeClasspath
+            args = [taskName - 'greet']
+        }
+    }
+}
