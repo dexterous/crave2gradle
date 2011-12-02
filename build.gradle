@@ -1,20 +1,3 @@
-buildscript {
-    repositories {
-        mavenRepo url:'http://clojars.org/repo'
-    }
-
-    dependencies {
-        classpath 'clojuresque:clojuresque:1.4.2'
-    }
-}
-
-apply plugin: 'clojure'
-
-repositories {
-    mavenCentral()
-    clojarsRepo()
-}
-
-dependencies {
-    compile 'org.clojure:clojure:1.3.0'
-}
+apply plugin: 'cpp'
+apply plugin: 'cpp-lib'
+apply plugin: 'cpp-exe'
