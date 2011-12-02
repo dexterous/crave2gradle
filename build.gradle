@@ -2,29 +2,13 @@ apply plugin: 'java'
 
 repositories {
     mavenCentral()
-    mavenLocal()
-    mavenRepo url: 'http://download.java.net/maven/2'
-
-    flatDir dirs: ["$projectDir/lib", "$projectDir/test-lib"]
 }
 
 dependencies {
-    compile 'commons-cli:commons-cli:1.2'
-    testCompile 'junit:junit:4.9', 'org.hamcrest:hamcrest-library:1.2.1'
+    testCompile 'junit:junit:4.8.2', 'org.hamcrest:hamcrest-core:1.2.1'
 }
 
-task testJar(type: Jar) {
-    group = 'build'
-    description = 'Assembles a jar archive containing the test classes.'
-
-    appendix = 'test'
-    from sourceSets.test.allSource
-}
-
-configurations {
-    deliverables
-}
-
-artifacts {
-    deliverables jar, testJar
+task run(type:JavaExec, dependsOn:['assemble']) {
+    main = 'sandbox.indicj.Main'
+    classpath = sourceSets.main.runtimeClasspath
 }
